@@ -1,6 +1,6 @@
 import Layout from "../components/layout";
 import Link from "next/link";
-import { Auth, ThemeSupa } from "@supabase/auth-ui-react";
+import { Auth } from "@supabase/auth-ui-react";
 import { useSession, useSupabaseClient } from "@supabase/auth-helpers-react";
 import Profile from "../components/profile";
 
@@ -10,9 +10,9 @@ export default function Sign(){
 
     return (
         <Layout siteTitle={!session? "Sign In" : "Profile"}>
-            <div className="container" style={{ padding: '50px 0 100px 0' }}>
+            <div>
                 {!session ? (
-                    <Auth supabaseClient={supabase} appearance={{ theme: ThemeSupa }} theme="dark" />
+                    <Auth supabaseClient={supabase} />
                 ) : (
                     <Profile session={session}/>
                 )}
